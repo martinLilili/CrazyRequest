@@ -10,7 +10,46 @@ import UIKit
 import Alamofire
 
 
+//MARK: - 封装asyncAfter
+
+typealias Task = (_ cancel : Bool) -> Void
+
+func delay(time:TimeInterval, task:@escaping ()->()) ->  Task? {
+    func dispatch_later(block:@escaping ()->()) {
+//        let additionalTime: DispatchTimeInterval = .seconds(Int(time))
+        DispatchQueue.main.asyncAfter(deadline: .now() + time) {
+                block()
+        }
+    }
+    var closure: (()->())? = task
+    var result: Task?
+    let delayedClosure: Task = {
+        cancel in
+        if let internalClosure = closure {
+            if (cancel == false) {
+                DispatchQueue.main.async(execute: internalClosure)
+            }
+        }
+        closure = nil
+        result = nil
+    }
+    result = delayedClosure
+    dispatch_later {
+        if let delayedClosure = result {
+            delayedClosure(false)
+        }
+    }
+    return result;
+}
+
+func cancelDispathTime(task:Task?) {
+    task?(true)
+}
+
 class ViewController: UIViewController {
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -183,6 +222,11 @@ class ViewController: UIViewController {
     
     func normalRequest(itemid : String, id : String) {
         print("normalRequest id = \(id)")
+        mozikunRequest(itemid: itemid, id: id)
+    }
+    
+    func mozikunRequest(itemid : String, id : String) {
+        print("mozikunRequest id = \(id)")
         var content : [String : Any] = [:]
         content["buyerName"] = "莫子坤"
         content["buyerProvince"] = "上海市"
@@ -198,7 +242,7 @@ class ViewController: UIViewController {
         content["seqId"] = "0"
         content["appCont"] = "2"
         content["shopId"] = "187043204"
-        content["deviceId"] = "25750A1F-B3F5-40A8-9969-A89247E91D25"
+        content["deviceId"] = UUID().uuidString
         content["authId"] = "-1"
         content["isCompress"] = "0"
         content["newerZoneUserType"] = "0"
@@ -256,9 +300,12 @@ class ViewController: UIViewController {
         normalRequest(itemid: "34094", id: "YX574000005")
     }
     
-    @IBAction func xs64jin(_ sender: Any) {
+    @IBAction func xs64jin(_ sender: Any?) {
         print("xs64jin")
         normalRequest(itemid: "34094", id: "YX574000004")
+        delay(time: 1) {
+            self.xs64jin(nil)
+        }
     }
     
     @IBAction func xs64hui(_ sender: Any) {
@@ -328,6 +375,155 @@ class ViewController: UIViewController {
     @IBAction func i11256黄(_ sender: Any) {
         print("i11256黄")
         normalRequest(itemid: "278006", id: "YX571001340")
+    }
+    
+    @IBAction func xsm256yin(_ sender: Any) {
+        normalRequest(itemid: "34098", id: "YX574000011")
+    }
+    
+    @IBAction func xsm64yin(_ sender: Any) {
+        normalRequest(itemid: "34098", id: "YX574000010")
+    }
+    
+    @IBAction func xsm256金(_ sender: Any) {
+        normalRequest(itemid: "34098", id: "YX574000007")
+    }
+    @IBAction func xsm256灰(_ sender: Any) {
+        normalRequest(itemid: "34098", id: "YX574000009")
+    }
+    
+    @IBAction func xsm64金(_ sender: Any) {
+        normalRequest(itemid: "34098", id: "YX574000006")
+    }
+    @IBAction func xsm64灰(_ sender: Any) {
+        normalRequest(itemid: "34098", id: "YX574000008")
+    }
+    
+    @IBAction func i11px64绿(_ sender: Any) {
+        normalRequest(itemid: "277985", id: "YX571001315")
+    }
+    
+    @IBAction func i11px64金(_ sender: Any) {
+        normalRequest(itemid: "277985", id: "YX571001312")
+    }
+    
+    @IBAction func i11px256金(_ sender: Any) {
+        normalRequest(itemid: "277985", id: "YX571001316")
+    }
+    @IBAction func i11pm512绿(_ sender: Any) {
+        normalRequest(itemid: "277985", id: "YX571001323")
+    }
+    @IBAction func i11pm64灰(_ sender: Any) {
+        normalRequest(itemid: "277985", id: "YX571001314")
+    }
+    
+    @IBAction func pm64银(_ sender: Any) {
+        normalRequest(itemid: "277985", id: "YX571001313")
+    }
+    @IBAction func i11pm256灰(_ sender: Any?) {
+        normalRequest(itemid: "277985", id: "YX571001318")
+        delay(time: 1) {
+            self.i11pm256灰(nil)
+        }
+    }
+    
+    @IBAction func i11pm256绿(_ sender: Any) {
+        normalRequest(itemid: "277985", id: "YX571001319")
+    }
+    
+    @IBAction func i11pm256银(_ sender: Any) {
+        normalRequest(itemid: "277985", id: "YX571001317")
+    }
+    
+    @IBAction func i11p64lv(_ sender: Any) {
+        normalRequest(itemid: "278005", id: "YX571001303")
+    }
+    
+    @IBAction func i11p64金(_ sender: Any) {
+        normalRequest(itemid: "278005", id: "YX571001300")
+    }
+    
+    @IBAction func i11p256金(_ sender: Any) {
+        normalRequest(itemid: "278005", id: "YX571001304")
+    }
+    
+    @IBAction func i11p512绿(_ sender: Any) {
+        normalRequest(itemid: "278005", id: "YX571001311")
+    }
+    
+    @IBAction func i11p64灰(_ sender: Any) {
+        normalRequest(itemid: "278005", id: "YX571001302")
+    }
+    
+    @IBAction func i11p64银(_ sender: Any) {
+        normalRequest(itemid: "278005", id: "YX571001301")
+    }
+    
+    @IBAction func i11p256hui(_ sender: Any) {
+        normalRequest(itemid: "278005", id: "YX571001306")
+    }
+    @IBAction func i11p256lv(_ sender: Any) {
+        normalRequest(itemid: "278005", id: "YX571001307")
+    }
+    @IBAction func i11p512灰(_ sender: Any) {
+        normalRequest(itemid: "278005", id: "YX571001310")
+    }
+    
+    @IBAction func i11P256银(_ sender: Any) {
+        normalRequest(itemid: "278005", id: "YX571001305")
+    }
+    
+    @IBAction func xr256黑(_ sender: Any) {
+        normalRequest(itemid: "38837", id: "YX575000013")
+    }
+    
+    @IBAction func xr64黄(_ sender: Any) {
+        normalRequest(itemid: "38837", id: "YX575000003")
+    }
+    
+    @IBAction func xr128黄(_ sender: Any) {
+        normalRequest(itemid: "38837", id: "YX575000009")
+    }
+    
+    @IBAction func xr64红(_ sender: Any) {
+        normalRequest(itemid: "38837", id: "YX575000004")
+    }
+    
+    @IBAction func xr64白(_ sender: Any) {
+        normalRequest(itemid: "38837", id: "YX575000000")
+    }
+    
+    @IBAction func xr128白(_ sender: Any) {
+        normalRequest(itemid: "38837", id: "YX575000006")
+    }
+    
+    @IBAction func xr128珊瑚(_ sender: Any) {
+        normalRequest(itemid: "38837", id: "YX575000011")
+    }
+    
+    @IBAction func xr128红(_ sender: Any) {
+        normalRequest(itemid: "38837", id: "YX575000010")
+    }
+    
+    @IBAction func xr64珊瑚(_ sender: Any) {
+        normalRequest(itemid: "38837", id: "YX575000005")
+    }
+    
+    @IBAction func xr64蓝(_ sender: Any) {
+        normalRequest(itemid: "38837", id: "YX575000002")
+    }
+    
+    @IBAction func xr128黑(_ sender: Any) {
+        normalRequest(itemid: "38837", id: "YX575000007")
+    }
+    @IBAction func xr64黑(_ sender: Any) {
+        normalRequest(itemid: "38837", id: "YX575000001")
+    }
+    
+    @IBAction func loginBtnClikced(_ sender: Any) {
+        
+        
+        
     }
     
 }

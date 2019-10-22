@@ -15,6 +15,9 @@
 		ED0F41BB2359886800A6ADEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED0F41BA2359886800A6ADEB /* Assets.xcassets */; };
 		ED0F41BE2359886800A6ADEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0F41BC2359886800A6ADEB /* LaunchScreen.storyboard */; };
 		ED0F41C62359930F00A6ADEB /* CWLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0F41C52359930F00A6ADEB /* CWLog.swift */; };
+		ED90A35F235D9B3800CEC20E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED90A35E235D9B3800CEC20E /* LoginViewController.swift */; };
+		ED9BCB53235F0F4C004775B0 /* DevicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BCB52235F0F4C004775B0 /* DevicesTableViewController.swift */; };
+		ED9BCB57235F1240004775B0 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BCB56235F1240004775B0 /* DeviceModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		ED0F41BD2359886800A6ADEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED0F41BF2359886800A6ADEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED0F41C52359930F00A6ADEB /* CWLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWLog.swift; sourceTree = "<group>"; };
+		ED90A35E235D9B3800CEC20E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		ED9BCB52235F0F4C004775B0 /* DevicesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesTableViewController.swift; sourceTree = "<group>"; };
+		ED9BCB56235F1240004775B0 /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
 		F3C07E7C9998ABEDA8022705 /* Pods_CrazyRequest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrazyRequest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -90,6 +96,9 @@
 				ED0F41BA2359886800A6ADEB /* Assets.xcassets */,
 				ED0F41BC2359886800A6ADEB /* LaunchScreen.storyboard */,
 				ED0F41BF2359886800A6ADEB /* Info.plist */,
+				ED90A35E235D9B3800CEC20E /* LoginViewController.swift */,
+				ED9BCB52235F0F4C004775B0 /* DevicesTableViewController.swift */,
+				ED9BCB56235F1240004775B0 /* DeviceModel.swift */,
 			);
 			path = CrazyRequest;
 			sourceTree = "<group>";
@@ -211,7 +220,10 @@
 			files = (
 				ED0F41B62359886600A6ADEB /* ViewController.swift in Sources */,
 				ED0F41B22359886600A6ADEB /* AppDelegate.swift in Sources */,
+				ED9BCB53235F0F4C004775B0 /* DevicesTableViewController.swift in Sources */,
 				ED0F41C62359930F00A6ADEB /* CWLog.swift in Sources */,
+				ED9BCB57235F1240004775B0 /* DeviceModel.swift in Sources */,
+				ED90A35F235D9B3800CEC20E /* LoginViewController.swift in Sources */,
 				ED0F41B42359886600A6ADEB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
