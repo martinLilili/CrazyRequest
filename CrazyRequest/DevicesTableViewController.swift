@@ -259,9 +259,21 @@ class DevicesTableViewController: UITableViewController {
             }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        for task in taskDic.values {
+            cancelDispathTime(task: task)
+        }
+    }
+    
     func normalRequest(itemid : String, id : String) {
         print("normalRequest id = \(id)")
-        mozikunRequest(itemid: itemid, id: id)
+        
+//        mozikunRequest(itemid: itemid, id: id)
+        for user in DataManager.share.selectUsers {
+            userRequest(itemid: itemid, id: id, user: user)
+        }
         let task = delay(time: 1) {
             self.normalRequest(itemid: itemid, id: id)
         }
@@ -293,11 +305,17 @@ class DevicesTableViewController: UITableViewController {
         content["isNoPassTrader"] = "0"
         content["newBornZone"] = false
         
-        content["buyerId"] = "okKa-s3ypAI7cqI6DTVmaB7tzUCs"
-        content["buyerAddressFlag"] = "上海"
-        content["identityCardNo"] = "441202198411181516"
+//        content["buyerId"] = "okKa-s3ypAI7cqI6DTVmaB7tzUCs"
+//        content["buyerAddressFlag"] = "上海"
+//        content["identityCardNo"] = "441202198411181516"
+//        content["buyerComment"] = ""
+//        content["unionId"] = "oZYqus8o_F7OzruZvo_kE_oZbiLI"
+        
+        content["buyerId"] = ""
+        content["buyerAddressFlag"] = ""
+        content["identityCardNo"] = ""
         content["buyerComment"] = ""
-        content["unionId"] = "oZYqus8o_F7OzruZvo_kE_oZbiLI"
+        content["unionId"] = ""
         
         
         var item : [String : Any] = [:]
@@ -338,6 +356,82 @@ class DevicesTableViewController: UITableViewController {
 
         })
     }
+    
+    func userRequest(itemid : String, id : String, user : User) {
+            print("mozikunRequest id = \(id)")
+            var content : [String : Any] = [:]
+        content["buyerName"] = user.buyerName
+        content["buyerProvince"] = user.buyerProvince
+        content["buyerCity"] = user.buyerCity
+        content["buyerArea"] = user.buyerArea
+        content["buyerStreet"] = user.buyerStreet
+        content["buyerAddress"] = user.buyerAddress
+        content["buyerNick"] = user.buyerNick
+        content["buyerPhone"] = user.buyerPhone
+            content["discoverId"] = "0"
+        content["consumerId"] = user.consumerId
+            content["isBalance"] = "0"
+            content["seqId"] = "0"
+            content["appCont"] = "2"
+        content["shopId"] = user.shopId
+            content["deviceId"] = UUID().uuidString
+            content["authId"] = "-1"
+            content["isCompress"] = "0"
+            content["newerZoneUserType"] = "0"
+            content["isNoPassTrader"] = "0"
+            content["newBornZone"] = false
+            
+    //        content["buyerId"] = "okKa-s3ypAI7cqI6DTVmaB7tzUCs"
+    //        content["buyerAddressFlag"] = "上海"
+    //        content["identityCardNo"] = "441202198411181516"
+    //        content["buyerComment"] = ""
+    //        content["unionId"] = "oZYqus8o_F7OzruZvo_kE_oZbiLI"
+            
+            content["buyerId"] = ""
+            content["buyerAddressFlag"] = ""
+            content["identityCardNo"] = ""
+            content["buyerComment"] = ""
+            content["unionId"] = ""
+            
+            
+            var item : [String : Any] = [:]
+            item["itemId"] = itemid
+            item["barcode"] = id
+            item["buyCount"] = "1"
+            item["fullminusId"] = 0
+            item["buyAttachId"] = 0
+            item["accessories"] = 0
+            item["comboId"] = 0
+            item["combocarId"] = ""
+            item["source"] = ""
+            item["sourceType"] = ""
+            content["itemLists"] = "[\(dicValueString(item))]"
+            
+            
+            var cookie : [String : String] = [:]
+        let cookiestr = user.ticket
+            cookie["Cookie"] = cookiestr
+            CWLog("content = \(content)")
+            CWLog("Cookie = \(cookie)")
+            
+            
+            var originalRequest: URLRequest?
+
+            do {
+                originalRequest = try URLRequest(url: "https://buy.yunjiglobal.com/yunjiorderbuy/makeorderget.json", method: .get, headers: cookie)
+                let encodedURLRequest = try URLEncoding.default.encode(originalRequest!, with: content)
+                print(encodedURLRequest)
+            } catch {
+                print("error")
+            }
+            
+            Alamofire.request("https://buy.yunjiglobal.com/yunjiorderbuy/makeorderget.json",parameters: content,headers:cookie).responseJSON(completionHandler: { (response) in
+                CWLog("response = \(response)")
+
+    //            self.remindtext.text = "response = \(response)"
+
+            })
+        }
     
     func dicValueString(_ dic:[String: Any]) ->String{
            let data = try? JSONSerialization.data(withJSONObject: dic,options: [])

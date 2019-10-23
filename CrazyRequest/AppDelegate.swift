@@ -13,10 +13,13 @@ import Alamofire
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
+    var window: UIWindow?
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         acceptInvalidSSLCerts()
+        UIApplication.shared.isIdleTimerDisabled = true
         return true
     }
 
@@ -36,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func acceptInvalidSSLCerts() {
+        print("acceptInvalidSSLCerts")
             let manager = SessionManager.default
             manager.delegate.sessionDidReceiveChallenge = { session, challenge in
                 var disposition: URLSession.AuthChallengeDisposition = .performDefaultHandling

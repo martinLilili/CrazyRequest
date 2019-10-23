@@ -18,6 +18,14 @@
 		ED90A35F235D9B3800CEC20E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED90A35E235D9B3800CEC20E /* LoginViewController.swift */; };
 		ED9BCB53235F0F4C004775B0 /* DevicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BCB52235F0F4C004775B0 /* DevicesTableViewController.swift */; };
 		ED9BCB57235F1240004775B0 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BCB56235F1240004775B0 /* DeviceModel.swift */; };
+		ED9BCB6423602679004775B0 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9BCB5A23602679004775B0 /* FMDatabaseQueue.m */; };
+		ED9BCB6523602679004775B0 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9BCB5D23602679004775B0 /* FMDatabaseAdditions.m */; };
+		ED9BCB6623602679004775B0 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9BCB5E23602679004775B0 /* FMDatabase.m */; };
+		ED9BCB6723602679004775B0 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9BCB6223602679004775B0 /* FMDatabasePool.m */; };
+		ED9BCB6823602679004775B0 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9BCB6323602679004775B0 /* FMResultSet.m */; };
+		ED9BCB6D236027C1004775B0 /* FMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BCB6C236027C1004775B0 /* FMDBManager.swift */; };
+		ED9BCB6F23602A13004775B0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BCB6E23602A13004775B0 /* User.swift */; };
+		ED9BCB71236052D7004775B0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9BCB70236052D7004775B0 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +43,21 @@
 		ED90A35E235D9B3800CEC20E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ED9BCB52235F0F4C004775B0 /* DevicesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesTableViewController.swift; sourceTree = "<group>"; };
 		ED9BCB56235F1240004775B0 /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
+		ED9BCB5923602679004775B0 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		ED9BCB5A23602679004775B0 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		ED9BCB5B23602679004775B0 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		ED9BCB5C23602679004775B0 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		ED9BCB5D23602679004775B0 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		ED9BCB5E23602679004775B0 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		ED9BCB5F23602679004775B0 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		ED9BCB6023602679004775B0 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		ED9BCB6123602679004775B0 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		ED9BCB6223602679004775B0 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		ED9BCB6323602679004775B0 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		ED9BCB6923602774004775B0 /* CrazyRequest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CrazyRequest-Bridging-Header.h"; sourceTree = "<group>"; };
+		ED9BCB6C236027C1004775B0 /* FMDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMDBManager.swift; sourceTree = "<group>"; };
+		ED9BCB6E23602A13004775B0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		ED9BCB70236052D7004775B0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F3C07E7C9998ABEDA8022705 /* Pods_CrazyRequest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrazyRequest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +111,7 @@
 		ED0F41B02359886600A6ADEB /* CrazyRequest */ = {
 			isa = PBXGroup;
 			children = (
+				ED9BCB5823602679004775B0 /* FMDB */,
 				ED0F41C52359930F00A6ADEB /* CWLog.swift */,
 				ED0F41B12359886600A6ADEB /* AppDelegate.swift */,
 				ED0F41B32359886600A6ADEB /* SceneDelegate.swift */,
@@ -99,8 +123,30 @@
 				ED90A35E235D9B3800CEC20E /* LoginViewController.swift */,
 				ED9BCB52235F0F4C004775B0 /* DevicesTableViewController.swift */,
 				ED9BCB56235F1240004775B0 /* DeviceModel.swift */,
+				ED9BCB6923602774004775B0 /* CrazyRequest-Bridging-Header.h */,
+				ED9BCB6C236027C1004775B0 /* FMDBManager.swift */,
+				ED9BCB6E23602A13004775B0 /* User.swift */,
+				ED9BCB70236052D7004775B0 /* DataManager.swift */,
 			);
 			path = CrazyRequest;
+			sourceTree = "<group>";
+		};
+		ED9BCB5823602679004775B0 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				ED9BCB5923602679004775B0 /* FMDatabase.h */,
+				ED9BCB5A23602679004775B0 /* FMDatabaseQueue.m */,
+				ED9BCB5B23602679004775B0 /* FMResultSet.h */,
+				ED9BCB5C23602679004775B0 /* FMDatabasePool.h */,
+				ED9BCB5D23602679004775B0 /* FMDatabaseAdditions.m */,
+				ED9BCB5E23602679004775B0 /* FMDatabase.m */,
+				ED9BCB5F23602679004775B0 /* FMDatabaseQueue.h */,
+				ED9BCB6023602679004775B0 /* FMDB.h */,
+				ED9BCB6123602679004775B0 /* FMDatabaseAdditions.h */,
+				ED9BCB6223602679004775B0 /* FMDatabasePool.m */,
+				ED9BCB6323602679004775B0 /* FMResultSet.m */,
+			);
+			path = FMDB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +265,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED0F41B62359886600A6ADEB /* ViewController.swift in Sources */,
+				ED9BCB71236052D7004775B0 /* DataManager.swift in Sources */,
+				ED9BCB6423602679004775B0 /* FMDatabaseQueue.m in Sources */,
 				ED0F41B22359886600A6ADEB /* AppDelegate.swift in Sources */,
+				ED9BCB6623602679004775B0 /* FMDatabase.m in Sources */,
 				ED9BCB53235F0F4C004775B0 /* DevicesTableViewController.swift in Sources */,
+				ED9BCB6D236027C1004775B0 /* FMDBManager.swift in Sources */,
+				ED9BCB6F23602A13004775B0 /* User.swift in Sources */,
+				ED9BCB6723602679004775B0 /* FMDatabasePool.m in Sources */,
+				ED9BCB6823602679004775B0 /* FMResultSet.m in Sources */,
 				ED0F41C62359930F00A6ADEB /* CWLog.swift in Sources */,
+				ED9BCB6523602679004775B0 /* FMDatabaseAdditions.m in Sources */,
 				ED9BCB57235F1240004775B0 /* DeviceModel.swift in Sources */,
 				ED90A35F235D9B3800CEC20E /* LoginViewController.swift in Sources */,
 				ED0F41B42359886600A6ADEB /* SceneDelegate.swift in Sources */,
@@ -378,6 +432,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyue.CrazyRequest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CrazyRequest/CrazyRequest-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -397,6 +452,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyue.CrazyRequest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CrazyRequest/CrazyRequest-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
